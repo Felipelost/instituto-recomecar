@@ -223,4 +223,56 @@ input[type="submit"]:hover {
         font-size: 18px;
     }
 }
+* {
+    box-sizing: border-box;
+}
 
+.pular-conteudo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    transform: translateY(-200%);
+    background-color: white;
+    color: #1b5e20;
+    padding: 12px 20px;
+    font-weight: bold;
+}
+
+.pular-conteudo:focus {
+    transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #111;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px white;
+}
+
+nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    border-color: #767676;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    article,
+    .botao,
+    input[type="submit"] {
+        transition: none;
+    }
+
+    article:hover {
+        transform: none;
+    }
+}
