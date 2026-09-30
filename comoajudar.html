@@ -4,54 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Como Ajudar - Instituto Recomeçar</title>
-
-    <!-- Conecta o CSS principal do projeto -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/acessibilidade.js" defer></script>
 </head>
 
 <body>
 
-    <header>
+    <a class="pular-conteudo" href="#conteudo-principal">
+        Pular para o conteúdo principal
+    </a>
 
+    <header>
         <h1>Instituto Recomeçar</h1>
 
-        <nav>
+        <nav aria-label="Menu principal">
             <a href="index.html">Início</a>
             <a href="quemsomos.html">Quem somos</a>
             <a href="projetos.html">Projetos</a>
-            <a href="comoajudar.html">Como ajudar</a>
+            <a href="comoajudar.html" aria-current="page">Como ajudar</a>
             <a href="cadastro.html">Cadastro</a>
         </nav>
-
+        <button
+    type="button"
+    id="alternar-contraste"
+    class="botao-contraste"
+    aria-pressed="false"
+>
+    Alto contraste
+</button>
     </header>
 
-    <main>
+    <main id="conteudo-principal" tabindex="-1">
 
-        <!-- Apresentação da página -->
         <section>
-
             <h2>Como Ajudar</h2>
 
             <p>
                 Existem diversas formas de contribuir com o Instituto
                 Recomeçar e ajudar nas ações realizadas junto à comunidade.
             </p>
-
         </section>
 
-
-        <!-- Formas de ajudar -->
         <section>
-
             <h2>Faça a diferença</h2>
 
             <div class="cards">
-
-                <!-- Card de doação -->
                 <article>
-
                     <h3>Faça uma Doação</h3>
 
                     <p>
@@ -60,7 +59,7 @@
                         para a comunidade.
                     </p>
 
-                    <h3>O que pode ser doado?</h3>
+                    <h4>O que pode ser doado?</h4>
 
                     <ul>
                         <li>Alimentos não perecíveis</li>
@@ -69,13 +68,9 @@
                         <li>Produtos de higiene</li>
                         <li>Recursos financeiros</li>
                     </ul>
-
                 </article>
 
-
-                <!-- Card de voluntariado -->
                 <article>
-
                     <h3>Seja um Voluntário</h3>
 
                     <p>
@@ -84,7 +79,7 @@
                         atividades desenvolvidas pelo instituto.
                     </p>
 
-                    <h3>Áreas de atuação</h3>
+                    <h4>Áreas de atuação</h4>
 
                     <ul>
                         <li>Educação</li>
@@ -96,17 +91,11 @@
                     <a class="botao" href="cadastro.html">
                         Quero ser voluntário
                     </a>
-
                 </article>
-
             </div>
-
         </section>
 
-
-        <!-- Divulgação -->
         <section>
-
             <h2>Compartilhe Nossa Causa</h2>
 
             <p>
@@ -118,19 +107,15 @@
             <a class="botao" href="projetos.html">
                 Conheça nossos projetos
             </a>
-
         </section>
 
     </main>
 
-
     <footer>
-
         <p>
             &copy; 2026 Instituto Recomeçar.
             Todos os direitos reservados.
         </p>
-
     </footer>
 
 </body>
