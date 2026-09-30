@@ -1,0 +1,15 @@
+{
+  "name": "instituto-recomecar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site acadêmico do Instituto Recomeçar",
+  "scripts": {
+    "build": "node build.cjs"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "html-minifier-terser": "^7.2.0",
+    "sharp": "^0.35.5",
+    "terser": "^5.51.2"
+  }
+}

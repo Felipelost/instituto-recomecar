@@ -7,10 +7,10 @@
     <title>Cadastro - Instituto Recomeçar</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/acessibilidade.js" defer></script>
+    <script src="js/cadastro.js" defer></script>
 </head>
 
 <body>
-
     <a class="pular-conteudo" href="#conteudo-principal">
         Pular para o conteúdo principal
     </a>
@@ -25,30 +25,34 @@
             <a href="comoajudar.html">Como ajudar</a>
             <a href="cadastro.html" aria-current="page">Cadastro</a>
         </nav>
+
         <button
-    type="button"
-    id="alternar-contraste"
-    class="botao-contraste"
-    aria-pressed="false"
->
-    Alto contraste
-</button>
+            type="button"
+            id="alternar-contraste"
+            class="botao-contraste"
+            aria-pressed="false"
+        >
+            Alto contraste
+        </button>
     </header>
 
     <main id="conteudo-principal" tabindex="-1">
-
         <section>
-            <h2>Cadastro</h2>
+            <h2>Cadastro demonstrativo</h2>
 
-            <p>
-                Preencha seus dados para participar das ações
-                e projetos do Instituto Recomeçar.
+            <p id="aviso-cadastro">
+                Este formulário faz parte de um projeto acadêmico.
+                Use apenas dados fictícios para testar o preenchimento.
+                Nenhum cadastro será enviado ou armazenado pelo site.
             </p>
 
             <p>Todos os campos são obrigatórios.</p>
 
-            <form method="post">
+            <noscript>
+                <p>Ative o JavaScript para usar o botão de verificar preenchimento.</p>
+            </noscript>
 
+            <form id="formulario-cadastro" aria-describedby="aviso-cadastro">
                 <fieldset>
                     <legend>Dados Pessoais</legend>
 
@@ -82,6 +86,7 @@
                     <label for="cpf">CPF:</label>
                     <p id="ajuda-cpf">
                         Use o formato 000.000.000-00, incluindo pontos e hífen.
+                        A verificação avalia apenas o formato.
                     </p>
                     <input
                         type="text"
@@ -213,11 +218,18 @@
                     ></textarea>
                 </fieldset>
 
-                <input type="submit" value="Enviar cadastro">
+                <button
+                    type="button"
+                    id="verificar-cadastro"
+                    class="botao"
+                    disabled
+                >
+                    Verificar preenchimento
+                </button>
 
+                <p id="resultado-cadastro" role="status" aria-atomic="true"></p>
             </form>
         </section>
-
     </main>
 
     <footer>
@@ -226,7 +238,6 @@
             Todos os direitos reservados.
         </p>
     </footer>
-
 </body>
 
 </html>

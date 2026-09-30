@@ -1,0 +1,65 @@
+[
+  {
+    "arquivo": "index.html",
+    "categoria": "HTML",
+    "antes": 3909,
+    "depois": 2384,
+    "reducao": "39.01%"
+  },
+  {
+    "arquivo": "quemsomos.html",
+    "categoria": "HTML",
+    "antes": 4342,
+    "depois": 2636,
+    "reducao": "39.29%"
+  },
+  {
+    "arquivo": "projetos.html",
+    "categoria": "HTML",
+    "antes": 3500,
+    "depois": 2230,
+    "reducao": "36.29%"
+  },
+  {
+    "arquivo": "comoajudar.html",
+    "categoria": "HTML",
+    "antes": 3631,
+    "depois": 2272,
+    "reducao": "37.43%"
+  },
+  {
+    "arquivo": "cadastro.html",
+    "categoria": "HTML",
+    "antes": 9317,
+    "depois": 5091,
+    "reducao": "45.36%"
+  },
+  {
+    "arquivo": "css\\style.css",
+    "categoria": "CSS",
+    "antes": 6524,
+    "depois": 4611,
+    "reducao": "29.32%"
+  },
+  {
+    "arquivo": "js\\acessibilidade.js",
+    "categoria": "JavaScript",
+    "antes": 788,
+    "depois": 567,
+    "reducao": "28.05%"
+  },
+  {
+    "arquivo": "js\\cadastro.js",
+    "categoria": "JavaScript",
+    "antes": 1040,
+    "depois": 788,
+    "reducao": "24.23%"
+  },
+  {
+    "arquivo": "imagens\\atendimento.jpg",
+    "categoria": "Imagens",
+    "antes": 788935,
+    "depois": 127237,
+    "reducao": "83.87%"
+  }
+]
