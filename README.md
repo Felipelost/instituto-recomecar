@@ -4,24 +4,43 @@ Site institucional de uma organização fictícia voltada ao apoio da comunidade
 
 Projeto acadêmico desenvolvido na disciplina de Desenvolvimento Front-end.
 
+## Site publicado
+
+https://felipelost.github.io/instituto-recomecar/
+
+## Código da versão entregue
+
+https://github.com/Felipelost/instituto-recomecar/tree/v1.0.0
+
+A tag `v1.0.0` identifica o commit `3b43507`, correspondente à primeira versão publicada.
+
 ## Tecnologias utilizadas
 
-- HTML5: estrutura semântica das páginas e validação dos campos.
-- CSS3: estilos, efeitos visuais e adaptação a diferentes telas.
-- Flexbox: organização dos cards.
-- Media queries: ajustes do layout para dispositivos móveis.
-- Git: controle do histórico e das branches.
-- GitHub: hospedagem do código, pull requests, issues e milestones.
+- HTML5: estrutura semântica e validação dos campos.
+- CSS3: estilos e layout responsivo.
+- Flexbox e media queries: organização e adaptação do layout.
+- JavaScript: alternância de contraste e verificação do formulário.
+- Node.js e npm: execução do build e gerenciamento das dependências.
+- html-minifier-terser: minificação de HTML.
+- clean-css: minificação de CSS.
+- terser: minificação de JavaScript.
+- sharp: redimensionamento e compressão de imagens.
+- Git e GitHub: versionamento e integração por pull requests.
+- GitHub Actions: automação do build e da publicação.
+- GitHub Pages: hospedagem do site.
 
 ## Páginas e funcionalidades
 
 - `index.html`: apresentação do instituto.
 - `quemsomos.html`: missão, visão e valores.
-- `projetos.html`: apresentação dos projetos sociais.
+- `projetos.html`: projetos sociais.
 - `comoajudar.html`: informações sobre doações e voluntariado.
-- `cadastro.html`: formulário de interesse em participação.
+- `cadastro.html`: formulário demonstrativo.
 - Layout responsivo.
-- Validação nativa de campos obrigatórios, e-mail e formatos de CPF, telefone e CEP.
+- Navegação por teclado com foco visível.
+- Link para pular ao conteúdo principal.
+- Modo de alto contraste compartilhado entre as páginas.
+- Validação de campos obrigatórios, e-mail e formatos de CPF, telefone e CEP.
 
 ## Estrutura do projeto
 
@@ -31,85 +50,192 @@ Projeto acadêmico desenvolvido na disciplina de Desenvolvimento Front-end.
 | `quemsomos.html` | Apresentação da organização |
 | `projetos.html` | Projetos sociais |
 | `comoajudar.html` | Formas de contribuir |
-| `cadastro.html` | Formulário de cadastro |
+| `cadastro.html` | Formulário demonstrativo |
 | `css/style.css` | Estilos compartilhados |
+| `js/acessibilidade.js` | Alternância e persistência do contraste |
+| `js/cadastro.js` | Verificação do preenchimento |
 | `imagens/` | Imagens do site |
+| `build.cjs` | Geração dos arquivos de produção |
+| `package.json` | Dependências e comando de build |
+| `package-lock.json` | Registro das versões das dependências |
+| `.github/workflows/deploy.yml` | Automação da publicação |
+| `.gitignore` | Exclusão de arquivos gerados do versionamento |
+| `relatorio-build.json` | Relatório de tamanhos antes e depois do build |
+| `dist/` | Arquivos de produção gerados pelo build |
 | `README.md` | Documentação do projeto |
+
+As pastas `node_modules/` e `dist/` não são versionadas.
 
 ## Requisitos
 
-- Navegador atualizado.
-- Git instalado para clonar o repositório.
-- Visual Studio Code recomendado para edição.
-- Extensão Live Server opcional para execução local.
+Para visualizar o site publicado, basta um navegador atualizado.
 
-Não há dependências de pacotes para instalar.
+Para gerar a versão de produção localmente:
+
+- Node.js 24.
+- npm.
+- Git para clonar o repositório.
+
+O Visual Studio Code e a extensão Live Server podem ser utilizados para edição e visualização local.
 
 ## Como executar localmente
 
-1. Clone o repositório:
+Clone o repositório e entre na pasta:
 
-   ```bash
-   git clone https://github.com/Felipelost/instituto-recomecar.git
-   ```
+```bash
+git clone https://github.com/Felipelost/instituto-recomecar.git
+cd instituto-recomecar
+```
 
-2. Entre na pasta:
+Abra `index.html` com o Live Server para visualizar os arquivos de desenvolvimento.
 
-   ```bash
-   cd instituto-recomecar
-   ```
+Para consultar o código da versão entregue:
 
-3. Para consultar a versão em desenvolvimento:
+```bash
+git checkout v1.0.0
+```
 
-   ```bash
-   git switch develop
-   ```
+Esse comando deixa o repositório em modo de consulta da tag. Para continuar o desenvolvimento:
 
-4. Abra a pasta no Visual Studio Code.
-5. Abra `index.html` no navegador ou use a opção “Open with Live Server”.
+```bash
+git switch develop
+```
 
-Também é possível baixar o ZIP pelo GitHub e extrair os arquivos.
+## Build de produção
+
+Instale as dependências e execute o build:
+
+```bash
+npm ci
+npm run build
+```
+
+O comando executa `build.cjs`, que:
+
+- Minifica as cinco páginas HTML.
+- Minifica os arquivos CSS e JavaScript.
+- Otimiza as imagens.
+- Mantém a estrutura e os caminhos relativos dos arquivos.
+- Gera a pasta `dist/`.
+- Cria `.nojekyll` na pasta de produção.
+- Registra os resultados em `relatorio-build.json`.
+
+Abra `dist/index.html` com o Live Server para verificar a versão otimizada.
+
+As alterações devem ser feitas nos arquivos de origem. A pasta `dist/` é gerada novamente pelo build.
+
+## Resultados da otimização
+
+Resultados registrados no build da primeira versão publicada:
+
+| Recursos | Tamanho original | Tamanho otimizado | Redução |
+| --- | ---: | ---: | ---: |
+| HTML, CSS e JavaScript | 33.051 bytes | 20.579 bytes | 37,74% |
+| Imagem `atendimento.jpg` | 788.935 bytes | 127.237 bytes | 83,87% |
+
+A imagem foi mantida em JPEG, com qualidade configurada em 80 e largura máxima de 1.600 pixels, sem ampliação de imagens menores.
+
+O build utiliza a imagem otimizada somente quando o resultado é menor que o arquivo original.
+
+Essas porcentagens representam redução no tamanho dos arquivos. Não foi medido o tempo global de carregamento antes e depois.
+
+## Publicação automática
+
+O site é hospedado no GitHub Pages, com a opção GitHub Actions selecionada como origem da publicação.
+
+O workflow `.github/workflows/deploy.yml` é executado após alterações na branch `main`. Também permite execução manual pela aba Actions.
+
+O processo possui duas etapas:
+
+1. `build`: baixa o código, configura o Node.js, instala as dependências com `npm ci`, executa `npm run build` e prepara a pasta `dist`.
+2. `deploy`: publica os arquivos preparados no GitHub Pages.
+
+A publicação ocorre somente após o sucesso do build.
+
+Para acompanhar a execução:
+
+https://github.com/Felipelost/instituto-recomecar/actions
 
 ## Acessibilidade
 
 Foram implementados:
 
-- Idioma da página definido como português do Brasil.
+- Idioma português do Brasil definido no HTML.
 - Elementos semânticos e hierarquia de títulos.
-- Texto alternativo na imagem da página inicial.
+- Texto alternativo na imagem.
 - Link para pular ao conteúdo principal.
-- Foco visível na navegação pelo teclado.
+- Foco visível nos elementos interativos.
 - Identificação da página atual com `aria-current`.
-- Rótulos associados aos campos do formulário.
+- Rótulos associados aos campos.
+- Agrupamento de campos com `fieldset` e `legend`.
 - Instruções de formato associadas com `aria-describedby`.
+- Botão de contraste com estado informado por `aria-pressed`.
+- Persistência da preferência de contraste em `localStorage`, quando disponível.
 - Respeito à preferência por movimento reduzido.
+- Mensagem de resultado do formulário com `role="status"`.
 
-Essas melhorias apoiam a acessibilidade. A conformidade completa com WCAG 2.1 AA ainda depende de uma avaliação de todas as páginas e critérios aplicáveis.
+A preferência de contraste é armazenada no navegador. Os dados preenchidos no formulário não são armazenados pelo site.
+
+## Contraste visual
+
+Combinações verificadas:
+
+| Texto | Fundo | Razão de contraste |
+| --- | --- | ---: |
+| Branco | Preto | 21:1 |
+| Amarelo | Preto | 19,55:1 |
+| Branco | `#2e7d32` | 5,12:1 |
+| Branco | `#1b5e20` | 7,86:1 |
+| `#2e7d32` | `#f5f5f5` | 4,70:1 |
+
+As combinações medidas superam a razão mínima de 4,5:1 para texto comum do nível AA.
+
+As melhorias implementadas e os testes realizados não equivalem a uma auditoria completa de conformidade com WCAG 2.1 AA.
 
 ## Verificação manual
 
-1. Percorra os links e campos com Tab e Shift + Tab.
-2. Acione o link de pular conteúdo com Enter.
-3. Confira se o foco permanece visível.
-4. Verifique todos os links do menu.
-5. Teste o layout em telas menores e com ampliação.
-6. Tente enviar o formulário vazio e com formatos incorretos.
-7. Confira se as imagens carregam corretamente.
+Foram testados localmente e no site publicado:
 
-Foi confirmado o funcionamento do link de pular conteúdo e do foco visível na página inicial.
+- Navegação entre as cinco páginas.
+- Carregamento dos estilos e da imagem.
+- Ativação e desativação do alto contraste.
+- Persistência do contraste ao trocar de página.
+- Navegação por teclado e foco visível.
+- Verificação do formulário com campos vazios e dados fictícios.
+- Adaptação do layout em tela de celular.
 
-Ainda não há uma suíte de testes automatizados.
+Não há uma suíte de testes automatizados. Testes com leitores de tela e avaliação completa dos critérios WCAG permanecem como oportunidades de melhoria.
+
+## Cadastro demonstrativo
+
+O formulário é utilizado exclusivamente para demonstração acadêmica.
+
+- Utilize somente dados fictícios.
+- O botão verifica o preenchimento no navegador.
+- Nenhum cadastro é enviado a um servidor ou armazenado pelo site.
+- Não há backend ou banco de dados.
+- A validação por `pattern` verifica o formato de CPF, telefone e CEP, sem confirmar sua existência ou autenticidade.
+- A verificação depende de JavaScript; sem ele, o botão permanece desabilitado.
 
 ## Versionamento e colaboração
 
-- `main`: versão estável.
-- `develop`: integração das alterações em desenvolvimento.
-- `feature/acessibilidade`: branch utilizada para as melhorias de acessibilidade.
-- `docs/readme`: branch destinada à atualização da documentação.
+- `main`: versão utilizada na publicação.
+- `develop`: integração das alterações.
+- `feature/acessibilidade`: melhorias de navegação e acessibilidade.
+- `feature/alto-contraste`: implementação do modo de alto contraste.
+- `feature/otimizacao-deploy`: build, otimização e configuração da publicação.
+- `docs/readme`: atualização inicial da documentação.
+- `docs/publicacao`: documentação do build e do site publicado.
 
-As alterações de acessibilidade foram integradas à `develop` pelo pull request #1.
+Integrações realizadas:
 
-As mensagens de novos commits seguem Conventional Commits:
+- PR #1: acessibilidade para `develop`.
+- PR #3: documentação para `develop`.
+- PR #4: alto contraste para `develop`.
+- PR #5: otimização e deploy para `develop`.
+- PR #6: integração de `develop` à `main`.
+
+Os novos commits utilizam Conventional Commits:
 
 - `feat:` para funcionalidades e melhorias.
 - `fix:` para correções.
@@ -121,46 +247,32 @@ A issue #2 reúne as tarefas de preparação para publicação e está vinculada
 
 ## Versões de entrega
 
-A primeira release planejada é `v1.0.0`.
+A tag anotada `v1.0.0` foi criada e enviada ao GitHub.
 
-Será utilizado o formato MAJOR.MINOR.PATCH:
+O versionamento utiliza o formato MAJOR.MINOR.PATCH:
 
-- MAJOR: mudanças incompatíveis com o comportamento anterior.
-- MINOR: novas funcionalidades compatíveis.
+- MAJOR: mudanças incompatíveis.
+- MINOR: funcionalidades compatíveis.
 - PATCH: correções compatíveis.
 
-Ainda não foram criadas tags ou releases.
-
-## Build e publicação
-
-O projeto atual utiliza arquivos HTML e CSS estáticos e não exige compilação.
-
-A minificação, a otimização de imagens e a publicação estão pendentes. As instruções e o endereço público serão adicionados após a conclusão dessas etapas.
-
-## Limitações do formulário
-
-O formulário possui validação no navegador, mas não está conectado a um serviço de recebimento ou banco de dados.
-
-O atributo `method="post"` sozinho não armazena cadastros. O envio precisa ser ajustado antes da publicação.
-
-A validação por `pattern` verifica o formato de CPF, telefone e CEP; não confirma a existência ou validade desses dados.
+A tag identifica o código da entrega. A criação de uma GitHub Release é uma etapa separada.
 
 ## Manutenção
 
 - Desenvolver alterações em branches separadas.
-- Testar as páginas afetadas antes de integrar mudanças.
-- Criar pull requests com descrição das alterações.
-- Atualizar o README quando houver mudanças de execução ou funcionalidades.
-- Acompanhar as tarefas pela issue e pela milestone.
+- Testar as páginas afetadas e executar o build.
+- Integrar alterações por pull requests.
+- Acompanhar o resultado do GitHub Actions após mudanças na `main`.
+- Atualizar a documentação quando houver mudanças.
+- Registrar correções e melhorias em issues.
 
-## Próximos passos
+## Melhorias futuras
 
-- Concluir a verificação de acessibilidade e responsividade.
-- Ajustar o comportamento do formulário.
-- Otimizar arquivos e imagens.
-- Preparar a versão estável na main.
-- Criar a tag e a release v1.0.0.
-- Publicar o site e documentar seu endereço.
+- Realizar testes com leitores de tela.
+- Ampliar a avaliação de acessibilidade.
+- Medir o desempenho com ferramentas de auditoria.
+- Adicionar testes automatizados relevantes.
+- Avaliar imagens em formatos modernos e diferentes resoluções.
 
 ## Autor
 
